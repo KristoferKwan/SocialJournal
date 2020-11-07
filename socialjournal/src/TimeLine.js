@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import {Typography, Paper, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 500,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+}));
+
 
 function TimeLine() {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reloadsssss.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Typography variant="h4"> 
+    Hi Covenant,
+    </Typography>
+
+    <Typography variant="body1"> 
+    Here are your most recent entries:
+    </Typography>
+    <Paper className={classes.paper}>
+        <Grid container wrap= "nowrap" spacing = {5}>
+          <Grid container item direction= 'column' spacing = {3} flexGrow={1} xs = {3} wrap= "nowrap">
+            <Grid item>
+              <Typography>Djhnsajhadkasj dasdasjkdhak dkhasdkahs </Typography>
+            </Grid>
+            <Grid item>
+              <Typography>Hello</Typography>
+            </Grid>
+          </Grid>
+          <Grid item flexGrow= {2} xs = {9}>
+            <Typography>Text</Typography>
+          </Grid>
+        </Grid>
+      </Paper>
     </div>
   );
 }
