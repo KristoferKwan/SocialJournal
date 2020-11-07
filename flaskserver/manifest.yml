@@ -1,0 +1,5 @@
+---
+    applications:
+     - name: social-journal-chatbot
+       memory: 128M
+    

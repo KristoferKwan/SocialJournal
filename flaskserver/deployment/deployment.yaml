@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: social-journal-chatbot
+  labels:
+    app: social-journal-chatbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: social-journal-chatbot
+  template:
+    metadata:
+      name: social-journal-chatbot
+      labels:
+        app: social-journal-chatbot
+    spec:
+      containers:
+        - name: social-journal-chatbot
+          image: us.icr.io/socialjournal/chatbot:1
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: 500m
+              memory: 128Mi
+            limits:
+              cpu: "2"
+              memory: 512Mi
+          env:
+            - name: DEBUG_MODE
+              value: "1"
