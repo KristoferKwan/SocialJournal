@@ -4,6 +4,7 @@ import { ContactPanel } from '../contactPanel/ContactPanel';
 import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
 import {ContactDialog} from './ContactDialog'
+import {ContactInfo} from './ContactInfo'
 
 
 
@@ -33,6 +34,11 @@ function Contacts({contacts, setContacts}) {
 
   const [open, setOpen] = React.useState(false);
 
+  const [popUpOpen, setPopUpOpen] = React.useState(false);
+
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  console.log(currentIndex)
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -41,6 +47,7 @@ function Contacts({contacts, setContacts}) {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <div>
   <Typography variant="h4"> 
@@ -52,11 +59,11 @@ function Contacts({contacts, setContacts}) {
     </Typography>
     <div class={classes.contact}>
         {
-          contacts.map(contactObject =>{
+          contacts.map((contactObject, index) =>{
             return( 
               <div className={classes.contact}>
                 <ContactPanel name = {contactObject.name} lastSeen = {contactObject.lastseen.toDateString()} 
-                frequencyOfMeeting= {contactObject.frequencyOfMeeting} relationship = {contactObject.relationship}/>
+                frequencyOfMeeting= {contactObject.frequencyOfMeeting} relationship = {contactObject.relationship} setPopUpOpen = {setPopUpOpen} index = {index}  setCurrentIndex = {setCurrentIndex} key={index}/>
             </div>)
           })
           }
@@ -64,6 +71,8 @@ function Contacts({contacts, setContacts}) {
           <AddIcon />
         </Fab>
         <ContactDialog open={open} setOpen= {setOpen} contacts = {contacts} setContacts={setContacts}/>
+        <ContactInfo setPopUpOpen = {setPopUpOpen} popUpOpen = {popUpOpen} contacts = {contacts} currentIndex = {currentIndex}/>
+
     </div>
     </div>
   );

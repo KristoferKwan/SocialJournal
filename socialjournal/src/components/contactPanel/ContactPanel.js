@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme) => ({
   }));
 
   
-export const ContactPanel  = ({name, lastSeen, relationship, frequencyOfMeeting}) => {
+export const ContactPanel  = ({name, lastSeen, relationship, frequencyOfMeeting, setPopUpOpen, index, setCurrentIndex}) => {
     const classes = useStyles();
     return (
-    <Paper className={classes.paper}>
+        <Paper className={classes.paper} onClick= {() => {console.log(index); setCurrentIndex(index); setPopUpOpen(true)}}>
         <Grid container wrap= "nowrap" spacing = {2}>
           <Grid container item direction= 'column' spacing = {3} flexGrow={1} xs = {4} wrap= "nowrap">
             <Grid item zeroMinWidth style={{ wordWrap: "break-word" }}>
