@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Timeline from './components/timeline/TimeLine';
 import Questions from './components/questions/Question';
-import Reminder from './components/reminder/Reminder'
+import Reminder from './components/reminder/Reminder';
+import Chatbot from './components/chatbot/Chatbot';
 import Button from '@material-ui/core/Button';
+
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -31,6 +33,7 @@ function App() {
             <Route path="/reminders" exact component={Reminder} />
           </Switch>
         </div>
+        <Chatbot/>
       </Router>
   );
 }

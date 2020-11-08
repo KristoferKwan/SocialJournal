@@ -50,7 +50,6 @@ function Questions(props) {
   }, [questionNum])
 
   const changeForm = () => {
-    console.log("here!!!");
     switch (questionNum) {
       case 0:
         return (
