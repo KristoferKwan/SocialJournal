@@ -1,5 +1,10 @@
-import {Typography, Paper, Grid } from '@material-ui/core';
+import {Typography, Paper, Grid, Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { ContactPanel } from '../contactPanel/ContactPanel';
+import AddIcon from '@material-ui/icons/Add';
+import React from 'react';
+import {ContactDialog} from './ContactDialog'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,14 +21,35 @@ const useStyles = makeStyles((theme) => ({
     height: 128,
   },
 }));
+const relationships = [
+  'family', 'friend', 'romantic interest', 'co-worker'
+];
 
-
-function Contacts() {
+function Contacts({contacts, setContacts}) {
   const classes = useStyles();
 
+  const [open, setOpen] = React.useState(false);
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div>
-        Contacts
+        {
+          contacts.map(contactObject =>{
+            return <ContactPanel name = {contactObject.name} lastSeen = {contactObject.lastseen.toDateString()} 
+            frequencyOfMeeting= {contactObject.frequencyOfMeeting} relationship = {contactObject.relationship}/>
+          })
+          }
+        <Fab color="primary" aria-label="add" onClick= {handleClickOpen}>
+          <AddIcon />
+        </Fab>
+        <ContactDialog open={open} setOpen= {setOpen} contacts = {contacts} setContacts={setContacts}/>
     </div>
   );
 }
