@@ -15,9 +15,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-
+import NotificationsIcon from '@material-ui/icons/Notifications';import PersonIcon from '@material-ui/icons/Person';
+import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
+import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -78,10 +79,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Drawer = () => {
+export const SideMenu = () => {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+
+    const chooseIcon = (index) => {
+        switch(index) {
+            case 0:
+                return <QueryBuilderIcon/>
+            case 1:
+                return <NotificationsIcon/>
+            case 2:
+                return <ForumOutlinedIcon/>
+            case 3:
+                return <PersonOutlineIcon/>
+            default:
+                return <React.Fragment/>
+        }  
+            
+    }
   
     const handleDrawerOpen = () => {
       setOpen(true);
@@ -131,18 +148,11 @@ const Drawer = () => {
           </div>
           <Divider />
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            {['Timeline', 'Reminders', 'Chatbot', 'Contacts'].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemIcon>{
+                   chooseIcon(index)
+                }</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
@@ -152,4 +162,3 @@ const Drawer = () => {
     )
 }
 
-export default Drawer;

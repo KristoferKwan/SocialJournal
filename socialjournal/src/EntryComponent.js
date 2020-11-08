@@ -24,8 +24,8 @@ export const EntryComponent  = ({name, date, message}) => {
     const classes = useStyles();
     return (
     <Paper className={classes.paper}>
-        <Grid container wrap= "nowrap" spacing = {5}>
-          <Grid container item direction= 'column' spacing = {3} flexGrow={1} xs = {3} wrap= "nowrap">
+        <Grid container wrap= "nowrap" spacing = {2}>
+          <Grid container item direction= 'column' spacing = {3} flexGrow={1} xs = {4} wrap= "nowrap">
             <Grid item zeroMinWidth style={{ wordWrap: "break-word" }}>
               <Typography> {name} </Typography>
             </Grid>
@@ -33,7 +33,7 @@ export const EntryComponent  = ({name, date, message}) => {
               <Typography>{date}</Typography>
             </Grid>
           </Grid>
-          <Grid item flexGrow= {2} xs = {9}>
+          <Grid item flexGrow= {2} xs = {8}>
             <b>What was your favorite part of your conversation?</b>
             <br></br>
             <TextTruncate
