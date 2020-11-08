@@ -1,4 +1,5 @@
-./node_modules
-package-lock.json
+**/node_modules
 translate.ckpt-78125.data-00000-of-00001
 .idea
+**/venv
+**/nmt_chatbot

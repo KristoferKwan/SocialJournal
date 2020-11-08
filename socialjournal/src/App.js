@@ -17,10 +17,6 @@ function App() {
         frequencyOfMeeting: "weekly"
     }]);
     const [reminders, setReminders] = useState([]);
-    
-    // const addEntry = (entry) => {
-    //     setEntries([...entries,entry]);
-    // }
 
     return (
       <Router>
