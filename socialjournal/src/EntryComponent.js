@@ -1,4 +1,4 @@
-import TextTruncate from 'react-text-truncate';
+import Truncate from 'react-truncate-html';
 import { makeStyles } from '@material-ui/core/styles';
 import {Paper,Grid, Typography} from '@material-ui/core';
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
       margin: 'auto',
-      maxWidth: 500,
+      maxWidth: 1000,
     },
     image: {
       width: 128,
@@ -36,11 +36,9 @@ export const EntryComponent  = ({name, date, message}) => {
           <Grid item flexGrow= {2} xs = {8}>
             <b>What was your favorite part of your conversation?</b>
             <br></br>
-            <TextTruncate
-              line={3}
-              element="span"
-              truncateText="…"
-              text= {message} 
+            <Truncate
+              lines={3}
+              dangerouslySetInnerHTML={{__html: message}}
             />
           </Grid>
         </Grid>

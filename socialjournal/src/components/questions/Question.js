@@ -153,7 +153,9 @@ function Questions({history, ...props}) {
   } 
 
   const onConfirm = () => {
-    props.setEntries([...props.entries, questionAnswers])
+    const entryDate = new Date();
+    const result = {questionAnswers, entryDate}
+    props.setEntries([...props.entries, result])
     history.push('/');
   }
 

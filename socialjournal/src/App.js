@@ -28,7 +28,6 @@ function App() {
     const [reminders, setReminders] = useState([]);
 
     useEffect(() => {
-      console.log("heeere")
       sortContacts(contacts)
     }, [contacts])
 
@@ -48,7 +47,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={() => <Timeline entries={entries}/>} />
             <Route path="/questions" exact component={() => <Questions entries={entries} setEntries={setEntries} contacts={contacts}/>} />
-            <Route path="/reminders" exact component={Reminder} />
+            <Route path="/reminders" exact component={() => <Reminder contacts={contacts} setContacts = {setContacts} />} />
             <Route path="/contacts" exact component={() => <Contacts contacts = {contacts} setContacts = {setContacts}/>} />
           </Switch>
         </div>

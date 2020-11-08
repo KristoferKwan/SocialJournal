@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  contact: {
+    marginTop: '50px'
+  },
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
@@ -40,16 +43,28 @@ function Contacts({contacts, setContacts}) {
   };
   return (
     <div>
+  <Typography variant="h4"> 
+    Contacts Page
+  </Typography>
+
+  <Typography variant="body1"> 
+    Click the add button to add more interactions!
+    </Typography>
+    <div class={classes.contact}>
         {
           contacts.map(contactObject =>{
-            return <ContactPanel name = {contactObject.name} lastSeen = {contactObject.lastseen.toDateString()} 
-            frequencyOfMeeting= {contactObject.frequencyOfMeeting} relationship = {contactObject.relationship}/>
+            return( 
+              <div className={classes.contact}>
+                <ContactPanel name = {contactObject.name} lastSeen = {contactObject.lastseen.toDateString()} 
+                frequencyOfMeeting= {contactObject.frequencyOfMeeting} relationship = {contactObject.relationship}/>
+            </div>)
           })
           }
         <Fab color="primary" aria-label="add" onClick= {handleClickOpen}>
           <AddIcon />
         </Fab>
         <ContactDialog open={open} setOpen= {setOpen} contacts = {contacts} setContacts={setContacts}/>
+    </div>
     </div>
   );
 }
