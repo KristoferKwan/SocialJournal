@@ -1,0 +1,22 @@
+.text-area{
+    margin: auto;
+    width: 1000px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.button{
+    margin-top: 10px !important;
+    margin-right: 10px !important;
+}
+
+.emoticon{
+    width: 80px !important;
+    height: 80px !important;
+}
+
+.emoticon:hover{
+    cursor: pointer;
+    color: grey !important;
+}
+

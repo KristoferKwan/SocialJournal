@@ -3,11 +3,10 @@ import Timeline from './components/timeline/TimeLine';
 import Questions from './components/questions/Question';
 import Reminder from './components/reminder/Reminder';
 import Chatbot from './components/chatbot/Chatbot';
-import Button from '@material-ui/core/Button';
-
-
+import {SideMenu} from './components/drawer/Drawer';
+import './style/Content.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
+import Container from '@material-ui/core/Container';
 
 
 function App() {
@@ -19,14 +18,12 @@ function App() {
         frequencyOfMeeting: "weekly"
     }]);
     const [reminders, setReminders] = useState([]);
-    
-    // const addEntry = (entry) => {
-    //     setEntries([...entries,entry]);
-    // }
 
     return (
       <Router>
-        <div className="App">
+        <SideMenu/>
+        <Container fixed>
+        <div className="App content">
           <Switch>
             <Route path="/" exact component={() => <Timeline entries={entries}/>} />
             <Route path="/questions" exact component={() => <Questions entries={entries} setEntries={setEntries} contacts={contacts}/>} />
@@ -34,6 +31,7 @@ function App() {
           </Switch>
         </div>
         <Chatbot/>
+        </Container>
       </Router>
   );
 }
