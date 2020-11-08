@@ -1,5 +1,6 @@
-import {Typography} from '@material-ui/core';
-import {EntryComponent} from './EntryComponent';
+import {Typography, Fab} from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import {EntryComponent} from '../../EntryComponent';
 
 function TimeLine() {
   return (
@@ -13,7 +14,9 @@ function TimeLine() {
     </Typography>
 
     <EntryComponent name = "Covenant Faluyi" date = {new Date().toDateString()} message=" Navy seal copy pasta"/>
-
+    <Fab color="primary" aria-label="add">
+      <AddIcon />
+    </Fab>
     </div>
   );
 }
