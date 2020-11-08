@@ -24,7 +24,28 @@ function App() {
         frequencyOfMeeting: "weekly",
         emailAddress: "johnJ@email.com",
         phoneNumber: "xxx-xxx-xxxxx"
-    }]);
+    }, {
+      name: "Jerry",
+      relationship: "Friend",
+      lastseen: new Date("2020-11-07T18:54"),
+      frequencyOfMeeting: "weekly",
+      emailAddress: "Jerry@email.com",
+      phoneNumber: "xxx-xxx-xxxxx"
+  }, {
+    name: "Robert",
+    relationship: "Friend",
+    lastseen: new Date("2020-11-03T18:54"),
+    frequencyOfMeeting: "weekly",
+    emailAddress: "Jerry@email.com",
+    phoneNumber: "xxx-xxx-xxxxx"
+}, {
+  name: "Sheila",
+  relationship: "Coworker",
+  lastseen: new Date("2020-11-07T18:54"),
+  frequencyOfMeeting: "daily",
+  emailAddress: "Jerry@email.com",
+  phoneNumber: "xxx-xxx-xxxxx"
+}]);
     const [reminders, setReminders] = useState([]);
 
     useEffect(() => {
