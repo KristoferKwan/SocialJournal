@@ -67,7 +67,7 @@ class ChatBot extends Component {
     return (<div>
       <Launcher
         agentProfile={{
-          teamName: 'react-chat-window',
+          teamName: 'SoJo',
           imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
         }}
         onMessageWasSent={this._onMessageWasSent.bind(this)}

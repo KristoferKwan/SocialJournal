@@ -140,7 +140,7 @@ export const SideMenu = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Social Journal
+              SoJo
             </Typography>
           </Toolbar>
         </AppBar>
