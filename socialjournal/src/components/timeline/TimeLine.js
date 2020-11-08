@@ -6,7 +6,6 @@ import {SideMenu} from '../drawer/Drawer'
 function TimeLine() {
   return (
     <div>
-      <SideMenu/>
       <Typography variant="h4"> 
         Hi Covenant,
       </Typography>

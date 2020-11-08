@@ -2,3 +2,5 @@
 package-lock.json
 translate.ckpt-78125.data-00000-of-00001
 .idea
+**/venv
+**/nmt_chatbot
