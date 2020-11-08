@@ -11,12 +11,16 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
       margin: 'auto',
-      maxWidth: 500,
+      maxWidth: 1000,
+      maxHeight: 200
     },
     image: {
       width: 128,
       height: 128,
     },
+    text:{
+      textAlign: 'right'
+    }
   }));
 
   
@@ -33,8 +37,8 @@ export const ContactPanel  = ({name, lastSeen, relationship, frequencyOfMeeting}
               <Typography>{lastSeen}</Typography>
             </Grid>
           </Grid>
-          <Grid item flexGrow= {2} xs = {8}>
-            <TextTruncate
+          <Grid item flexGrow= {2} xs = {8} alignItems={"flex-end"} justify={"flex-end"}>
+            <TextTruncate className={classes.text}
               line={3}
               element="span"
               truncateText="…"

@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -38,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'rgba(0, 0, 0, 0.87)'
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -84,6 +89,13 @@ export const SideMenu = () => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
+    const pageToRoutes = {
+      Timeline: "",
+      Reminders: "reminders",
+      Contacts: "contacts",
+      Chatbot: "#"
+    }
+
     const chooseIcon = (index) => {
         switch(index) {
             case 0:
@@ -128,7 +140,7 @@ export const SideMenu = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Persistent drawer
+              Social Journal
             </Typography>
           </Toolbar>
         </AppBar>
@@ -149,12 +161,14 @@ export const SideMenu = () => {
           <Divider />
           <List>
             {['Timeline', 'Reminders', 'Chatbot', 'Contacts'].map((text, index) => (
+              <Link className={classes.link} to={"/" + pageToRoutes[text]}>
               <ListItem button key={text}>
                 <ListItemIcon>{
                    chooseIcon(index)
                 }</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
+              </Link>
             ))}
           </List>
         </Drawer>
