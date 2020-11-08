@@ -4,6 +4,11 @@ import Questions from './components/questions/Question';
 import Reminder from './components/reminder/Reminder'
 import Button from '@material-ui/core/Button';
 import Contacts from './components/contacts/Contacts'
+import DateFnsUtils from '@date-io/date-fns'; // choose your lib
+import {
+  MuiPickersUtilsProvider,
+} from '@material-ui/pickers';
+
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -14,7 +19,7 @@ function App() {
     const [contacts, setContacts] = useState([{
         name: "John",
         relationship: "Friend",
-        lastseen: "Nov 5, 2020",
+        lastseen: new Date("2019-01-01T18:54"),
         frequencyOfMeeting: "weekly",
         emailAddress: "johnJ@email.com",
         phoneNumber: "xxx-xxx-xxxxx"
@@ -38,6 +43,7 @@ function App() {
     });
     }
     return (
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Router>
         <div className="App">
           <Switch>
@@ -48,6 +54,7 @@ function App() {
           </Switch>
         </div>
       </Router>
+      </MuiPickersUtilsProvider>
   );
 }
 

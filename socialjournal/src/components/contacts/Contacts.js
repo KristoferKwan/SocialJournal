@@ -42,7 +42,7 @@ function Contacts({contacts, setContacts}) {
     <div>
         {
           contacts.map(contactObject =>{
-            return <ContactPanel name = {contactObject.name} lastSeen = {contactObject.lastseen} 
+            return <ContactPanel name = {contactObject.name} lastSeen = {contactObject.lastseen.toDateString()} 
             frequencyOfMeeting= {contactObject.frequencyOfMeeting} relationship = {contactObject.relationship}/>
           })
           }

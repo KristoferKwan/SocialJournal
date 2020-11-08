@@ -7,6 +7,9 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import React from 'react';
+import { KeyboardDateTimePicker } from "@material-ui/pickers";
+import {Select, MenuItem} from "@material-ui/core"
+
 
 
 export const ContactDialog = ({open, setOpen, setContacts, contacts}) => {
@@ -20,16 +23,20 @@ export const ContactDialog = ({open, setOpen, setContacts, contacts}) => {
       const [relationship, setRelationship] = React.useState('')
       const [email, setEmail] = React.useState('')
       const [phone, setPhone] = React.useState('')
+      const [lastSeen, setLastSeen] = React.useState(new Date())
+      const [frequencyOfMeeting, setFrequency] = React.useState('daily')
+
 
       const handleSubmit = () => {
         const newContact = {
             name: name,
             relationship: relationship,
-            lastseen: "N/A",
-            frequencyOfMeeting: "N/A",
+            lastseen: lastSeen,
+            frequencyOfMeeting: frequencyOfMeeting,
             emailAddress: email,
             phoneNumber: phone
         }
+        console.log(newContact)
         const newContactList = [...contacts, newContact]
         newContactList.sort(function(a, b) {
             var textA = a.name.toUpperCase();
@@ -102,7 +109,7 @@ export const ContactDialog = ({open, setOpen, setContacts, contacts}) => {
         // Regular option
         return option.title;
       }}
-      renderOption={(option) => option.title}
+      renderOption={(option) => option}
       style={{ width: 300 }}
       freeSolo
       renderInput={(params) => (
@@ -124,6 +131,37 @@ export const ContactDialog = ({open, setOpen, setContacts, contacts}) => {
       value={relationship}
 
     />
+    <DialogContentText>
+            Enter date of last interaction:
+          </DialogContentText>
+    <KeyboardDateTimePicker
+        value={lastSeen}
+        onChange={setLastSeen}
+        label="Enter date of last interaction"
+        onError={console.log}
+        maxDate={new Date()}
+        format="yyyy/MM/dd hh:mm a"
+      />
+
+<DialogContentText>
+            Ideally how frequenctly would you want to contact this person?
+          </DialogContentText>
+
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={frequencyOfMeeting}
+          onChange={(event) => {
+        
+        setFrequency(
+         event.target.value
+        );
+    }}
+        >
+          <MenuItem value={'daily'}>Daily</MenuItem>
+          <MenuItem value={'weekly'}>Weekly</MenuItem>
+          <MenuItem value={'monthly'}>Monthly</MenuItem>
+        </Select>
 
 <DialogContentText>
             Email address of contact:
@@ -136,7 +174,7 @@ export const ContactDialog = ({open, setOpen, setContacts, contacts}) => {
             onChange={(event, newValue) => {
         
         setEmail(
-         newValue
+         event.target.value
         );
     }}
             
@@ -153,7 +191,7 @@ export const ContactDialog = ({open, setOpen, setContacts, contacts}) => {
             OnChange={(event, newValue) => {
         
         setPhone(
-         newValue
+         event.target.value
         );
     }}
             
