@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Timeline from './components/timeline/TimeLine';
 import Questions from './components/questions/Question';
 import Reminder from './components/reminder/Reminder';
+import Chatbot from './components/chatbot/Chatbot';
 import {SideMenu} from './components/drawer/Drawer';
 import './style/Content.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -29,6 +30,7 @@ function App() {
             <Route path="/reminders" exact component={Reminder} />
           </Switch>
         </div>
+        <Chatbot/>
         </Container>
       </Router>
   );
