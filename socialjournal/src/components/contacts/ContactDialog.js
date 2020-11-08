@@ -188,7 +188,7 @@ export const ContactDialog = ({open, setOpen, setContacts, contacts}) => {
             id="name"
             label="Phone #"
             type="name"
-            OnChange={(event, newValue) => {
+            onChange={(event, newValue) => {
         
         setPhone(
          event.target.value

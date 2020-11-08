@@ -52,6 +52,10 @@ function App() {
       sortContacts(contacts)
     }, [contacts])
 
+    useEffect(() => {
+      console.log(entries)
+    }, [entries])
+
     const sortContacts = (contacts) => {
       contacts.sort(function(a, b) {
         var textA = a.name.toUpperCase();
